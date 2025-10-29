@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Sidebar from '@/components/Sidebar';
+import DocSidebar from '@/components/DocSidebar';
 import DocContent from '@/components/DocContent';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
@@ -10,7 +10,7 @@ export default function Index() {
 
   return (
     <div className="flex h-screen overflow-hidden bg-background">
-      <Sidebar
+      <DocSidebar
         onSelectPage={(id) => {
           setCurrentPage(id);
           setIsSidebarOpen(false);

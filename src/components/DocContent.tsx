@@ -1,142 +1,132 @@
 import { ScrollArea } from '@/components/ui/scroll-area';
-import Icon from '@/components/ui/icon';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import Icon from '@/components/ui/icon';
 
 interface DocContentProps {
   pageId: string;
 }
 
-const docPages: Record<string, { title: string; content: JSX.Element }> = {
+const pageContent: Record<string, { title: string; content: JSX.Element }> = {
   intro: {
-    title: 'Документация плагинов для Minecraft сервера',
+    title: 'Добро пожаловать в документацию',
     content: (
       <div className="space-y-6">
-        <div className="prose max-w-none">
-          <p className="text-lg text-muted-foreground">
-            Добро пожаловать в документацию плагинов для нашего Minecraft сервера. Здесь вы найдёте 
-            подробные инструкции по настройке и использованию каждого плагина.
-          </p>
-        </div>
+        <p className="text-lg text-muted-foreground">
+          Здесь вы найдете полную документацию по всем плагинам нашего Minecraft сервера.
+          Каждый плагин содержит подробное описание, список команд и примеры конфигурации.
+        </p>
 
-        <div className="grid md:grid-cols-2 gap-4 mt-8">
-          <Card className="hover:shadow-md transition-shadow">
+        <div className="grid gap-4 md:grid-cols-2">
+          <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Icon name="DollarSign" size={24} className="text-primary" />
                 <CardTitle>EconomyPlugin</CardTitle>
               </div>
+              <CardDescription>
+                Система экономики и валюты на сервере
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
-                Система экономики сервера. Управление балансами игроков, транзакции и магазины.
+              <p className="text-sm text-muted-foreground">
+                Управление балансом игроков, транзакции, магазины и торговля.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-md transition-shadow">
+          <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Icon name="Shield" size={24} className="text-primary" />
                 <CardTitle>RegionProtect</CardTitle>
               </div>
+              <CardDescription>
+                Защита территорий и регионов
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
-                Защита территорий игроков. Создание регионов и управление правами доступа.
+              <p className="text-sm text-muted-foreground">
+                Создание приватных зон, управление правами доступа и защита построек.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-md transition-shadow">
+          <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Icon name="ShoppingCart" size={24} className="text-primary" />
                 <CardTitle>AdminShop</CardTitle>
               </div>
+              <CardDescription>
+                Административный магазин
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
-                Административный магазин. Настройка цен, добавление товаров и категорий.
+              <p className="text-sm text-muted-foreground">
+                Создание магазинов, установка цен и управление товарами.
               </p>
             </CardContent>
           </Card>
 
-          <Card className="hover:shadow-md transition-shadow">
+          <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
                 <Icon name="MapPin" size={24} className="text-primary" />
                 <CardTitle>TeleportManager</CardTitle>
               </div>
+              <CardDescription>
+                Система телепортации
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground">
-                Система телепортации. Варпы, дома игроков и запросы на телепортацию.
+              <p className="text-sm text-muted-foreground">
+                Точки телепортации, домашние точки и варпы.
               </p>
             </CardContent>
           </Card>
         </div>
-
-        <Card className="bg-blue-50 border-blue-200 mt-6">
-          <CardContent className="pt-6">
-            <div className="flex gap-3">
-              <Icon name="Info" size={20} className="text-blue-600 shrink-0 mt-1" />
-              <div>
-                <p className="font-medium text-blue-900">Важно для администраторов</p>
-                <p className="text-sm text-blue-800 mt-1">
-                  Перед началом работы с плагинами убедитесь, что у вас есть права администратора 
-                  и доступ к конфигурационным файлам сервера.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
       </div>
     ),
   },
-  'economy-intro': {
+  'economy-overview': {
     title: 'EconomyPlugin - Описание',
     content: (
       <div className="space-y-6">
-        <p className="text-lg text-muted-foreground">
-          EconomyPlugin предоставляет полноценную систему экономики для вашего сервера.
-        </p>
-
-        <div>
-          <h2 className="text-2xl font-semibold mb-3">Основные возможности</h2>
-          <ul className="space-y-2 ml-6">
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Управление балансами игроков</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Перевод денег между игроками</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>История транзакций</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Интеграция с другими плагинами</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Настраиваемая валюта</span>
-            </li>
-          </ul>
+        <div className="flex items-center gap-2">
+          <Icon name="DollarSign" size={32} className="text-primary" />
+          <h2 className="text-2xl font-bold">EconomyPlugin</h2>
         </div>
+        
+        <p className="text-muted-foreground">
+          EconomyPlugin - это полнофункциональная система экономики для вашего Minecraft сервера.
+          Плагин предоставляет все необходимые инструменты для управления виртуальной валютой.
+        </p>
 
         <Card>
           <CardHeader>
-            <CardTitle>Требования</CardTitle>
+            <CardTitle>Основные возможности</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
-            <div className="flex items-center gap-2">
-              <Badge variant="secondary">Minecraft 1.19+</Badge>
-              <Badge variant="secondary">Java 17+</Badge>
-              <Badge variant="secondary">Spigot/Paper</Badge>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Управление балансом игроков</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Система транзакций между игроками</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Интеграция с другими плагинами</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>История транзакций</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Топ богатейших игроков</span>
             </div>
           </CardContent>
         </Card>
@@ -147,63 +137,76 @@ const docPages: Record<string, { title: string; content: JSX.Element }> = {
     title: 'EconomyPlugin - Команды',
     content: (
       <div className="space-y-6">
-        <p className="text-muted-foreground">
-          Список всех доступных команд плагина EconomyPlugin.
-        </p>
+        <h2 className="text-2xl font-bold">Команды плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge>Игрок</Badge>
+              Команды для игроков
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/balance</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Показывает ваш текущий баланс
+              </p>
+            </div>
 
-        <div className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg font-mono">/balance [игрок]</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-2">Просмотр баланса игрока</p>
-              <Badge>Алиас: /bal</Badge>
-              <div className="mt-3 p-3 bg-muted rounded-md">
-                <p className="text-sm font-mono">Пример: /balance Steve</p>
-              </div>
-            </CardContent>
-          </Card>
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/pay [игрок] [сумма]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Переводит деньги другому игроку
+              </p>
+            </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg font-mono">/pay [игрок] [сумма]</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-2">Перевести деньги другому игроку</p>
-              <div className="mt-3 p-3 bg-muted rounded-md">
-                <p className="text-sm font-mono">Пример: /pay Alex 1000</p>
-              </div>
-            </CardContent>
-          </Card>
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/baltop</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Показывает топ богатейших игроков сервера
+              </p>
+            </div>
+          </CardContent>
+        </Card>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg font-mono">/eco [set/give/take] [игрок] [сумма]</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-2">Администраторская команда для управления балансом</p>
-              <Badge variant="destructive">Только для админов</Badge>
-              <div className="mt-3 p-3 bg-muted rounded-md space-y-1">
-                <p className="text-sm font-mono">/eco set Steve 5000 - установить баланс</p>
-                <p className="text-sm font-mono">/eco give Steve 1000 - добавить к балансу</p>
-                <p className="text-sm font-mono">/eco take Steve 500 - убавить баланс</p>
-              </div>
-            </CardContent>
-          </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge variant="destructive">Админ</Badge>
+              Команды для администраторов
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/eco give [игрок] [сумма]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Выдает игроку указанную сумму денег
+              </p>
+            </div>
 
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-lg font-mono">/baltop [страница]</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-2">Рейтинг самых богатых игроков</p>
-              <div className="mt-3 p-3 bg-muted rounded-md">
-                <p className="text-sm font-mono">Пример: /baltop 1</p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/eco take [игрок] [сумма]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Забирает у игрока указанную сумму денег
+              </p>
+            </div>
+
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/eco set [игрок] [сумма]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Устанавливает баланс игрока на указанную сумму
+              </p>
+            </div>
+
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/eco reset [игрок]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Сбрасывает баланс игрока до начального значения
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     ),
   },
@@ -211,8 +214,10 @@ const docPages: Record<string, { title: string; content: JSX.Element }> = {
     title: 'EconomyPlugin - Конфигурация',
     content: (
       <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Настройка плагина</h2>
+        
         <p className="text-muted-foreground">
-          Настройка плагина через конфигурационный файл config.yml
+          Основные настройки находятся в файле <code className="bg-muted px-2 py-1 rounded">config.yml</code>
         </p>
 
         <Card>
@@ -220,121 +225,494 @@ const docPages: Record<string, { title: string; content: JSX.Element }> = {
             <CardTitle>Основные параметры</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="bg-slate-900 text-slate-50 p-4 rounded-md overflow-x-auto">
-              <pre className="text-sm"><code>{`# Конфигурация EconomyPlugin
-economy:
-  # Название валюты
-  currency-name: "монет"
-  currency-symbol: "💰"
+            <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
+              <code>{`# Основные настройки экономики
+currency:
+  name: "Монеты"
+  symbol: "⭐"
   
-  # Стартовый баланс для новых игроков
-  starting-balance: 1000
+# Начальный баланс для новых игроков
+starting-balance: 1000
+
+# Минимальная сумма для перевода
+minimum-payment: 1
+
+# Максимальный баланс игрока
+max-balance: 999999999
+
+# Комиссия за перевод (в процентах)
+transfer-fee: 0
+
+# Логирование транзакций
+logging:
+  enabled: true
+  log-file: "transactions.log"
   
-  # Минимальная сумма для перевода
-  min-payment: 1
-  
-  # Комиссия за перевод (в процентах)
-  transfer-fee: 0
-  
-  # Максимальный баланс
-  max-balance: 1000000000
-  
-# Сообщения
-messages:
-  insufficient-funds: "У вас недостаточно средств!"
-  payment-sent: "Вы отправили {amount} {currency} игроку {player}"
-  payment-received: "Вы получили {amount} {currency} от игрока {player}"`}</code></pre>
-            </div>
+# Формат отображения денег
+format:
+  thousands-separator: ","
+  decimal-places: 2`}</code>
+            </pre>
           </CardContent>
         </Card>
 
-        <Card className="bg-amber-50 border-amber-200">
-          <CardContent className="pt-6">
-            <div className="flex gap-3">
-              <Icon name="AlertTriangle" size={20} className="text-amber-600 shrink-0 mt-1" />
-              <div>
-                <p className="font-medium text-amber-900">Внимание</p>
-                <p className="text-sm text-amber-800 mt-1">
-                  После изменения конфигурации необходимо перезагрузить плагин командой /eco reload 
-                  или перезапустить сервер.
-                </p>
-              </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Права доступа (permissions)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
+              <code>{`# Базовые права
+economy.balance - Просмотр баланса
+economy.pay - Перевод денег
+economy.baltop - Просмотр топа
+
+# Права администратора
+economy.admin.give - Выдача денег
+economy.admin.take - Забрать деньги
+economy.admin.set - Установить баланс
+economy.admin.reset - Сбросить баланс`}</code>
+            </pre>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'regions-overview': {
+    title: 'RegionProtect - Описание',
+    content: (
+      <div className="space-y-6">
+        <div className="flex items-center gap-2">
+          <Icon name="Shield" size={32} className="text-primary" />
+          <h2 className="text-2xl font-bold">RegionProtect</h2>
+        </div>
+        
+        <p className="text-muted-foreground">
+          RegionProtect обеспечивает надежную защиту построек и территорий на вашем сервере.
+          Создавайте приватные зоны и управляйте правами доступа.
+        </p>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Основные возможности</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Создание защищенных регионов</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Управление правами доступа</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Добавление участников региона</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Настройка флагов защиты</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Визуализация границ регионов</span>
             </div>
           </CardContent>
         </Card>
       </div>
     ),
   },
-  'regions-intro': {
-    title: 'RegionProtect - Описание',
+  'regions-commands': {
+    title: 'RegionProtect - Команды',
     content: (
       <div className="space-y-6">
-        <p className="text-lg text-muted-foreground">
-          RegionProtect обеспечивает защиту территорий игроков от вмешательства других пользователей.
+        <h2 className="text-2xl font-bold">Команды плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge>Игрок</Badge>
+              Команды для игроков
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/region create [название]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Создает новый регион в выделенной области
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/region add [регион] [игрок]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Добавляет игрока в список участников региона
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/region remove [регион] [игрок]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Удаляет игрока из участников региона
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/region info [регион]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Показывает информацию о регионе
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'regions-config': {
+    title: 'RegionProtect - Конфигурация',
+    content: (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Настройка плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle>Настройки защиты</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
+              <code>{`# Настройки регионов
+regions:
+  max-per-player: 3
+  min-size: 5
+  max-size: 100
+  
+# Флаги защиты по умолчанию
+default-flags:
+  pvp: false
+  mob-spawning: true
+  block-break: false
+  block-place: false
+  use-items: false
+  
+# Визуализация
+visualization:
+  particle-type: "BARRIER"
+  show-on-enter: true`}</code>
+            </pre>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'shop-overview': {
+    title: 'AdminShop - Описание',
+    content: (
+      <div className="space-y-6">
+        <div className="flex items-center gap-2">
+          <Icon name="ShoppingCart" size={32} className="text-primary" />
+          <h2 className="text-2xl font-bold">AdminShop</h2>
+        </div>
+        
+        <p className="text-muted-foreground">
+          AdminShop позволяет создавать серверные магазины с настраиваемыми товарами и ценами.
         </p>
 
-        <div>
-          <h2 className="text-2xl font-semibold mb-3">Функционал</h2>
-          <ul className="space-y-2 ml-6">
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Создание защищённых регионов</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Управление правами доступа</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Добавление друзей в регион</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Флаги защиты (PvP, взрывы, мобы)</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <Icon name="Check" size={20} className="text-primary mt-0.5" />
-              <span>Приоритеты регионов</span>
-            </li>
-          </ul>
+        <Card>
+          <CardHeader>
+            <CardTitle>Основные возможности</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>GUI интерфейс магазина</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Покупка и продажа предметов</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Категории товаров</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Интеграция с экономикой</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'shop-commands': {
+    title: 'AdminShop - Команды',
+    content: (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Команды плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge>Игрок</Badge>
+              Команды для игроков
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/shop</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Открывает главное меню магазина
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/shop sell</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Открывает меню продажи предметов
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge variant="destructive">Админ</Badge>
+              Команды для администраторов
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/shop reload</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Перезагружает конфигурацию магазина
+              </p>
+            </div>
+
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/shop edit</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Открывает редактор магазина
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'shop-config': {
+    title: 'AdminShop - Конфигурация',
+    content: (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Настройка плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle>Пример конфигурации товара</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
+              <code>{`# Пример товара в магазине
+items:
+  diamond:
+    material: DIAMOND
+    name: "&bАлмаз"
+    lore:
+      - "&7Редкий драгоценный камень"
+      - "&7Используется в крафте"
+    buy-price: 1000
+    sell-price: 500
+    category: "resources"
+    slot: 10
+    
+  sword:
+    material: DIAMOND_SWORD
+    name: "&aАлмазный меч"
+    buy-price: 5000
+    category: "weapons"
+    slot: 15`}</code>
+            </pre>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'teleport-overview': {
+    title: 'TeleportManager - Описание',
+    content: (
+      <div className="space-y-6">
+        <div className="flex items-center gap-2">
+          <Icon name="MapPin" size={32} className="text-primary" />
+          <h2 className="text-2xl font-bold">TeleportManager</h2>
         </div>
+        
+        <p className="text-muted-foreground">
+          TeleportManager управляет системой телепортации на сервере: домашние точки, варпы и запросы на телепортацию.
+        </p>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Основные возможности</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-2">
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Домашние точки игроков</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Публичные варпы</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Запросы на телепортацию</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Задержка телепортации</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <Icon name="Check" size={20} className="text-green-500 mt-0.5" />
+              <span>Возврат к точке смерти</span>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'teleport-commands': {
+    title: 'TeleportManager - Команды',
+    content: (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Команды плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge>Игрок</Badge>
+              Команды для игроков
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/sethome [название]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Устанавливает домашнюю точку
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/home [название]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Телепортирует к домашней точке
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/warp [название]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Телепортирует к публичному варпу
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/tpa [игрок]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Отправляет запрос на телепортацию к игроку
+              </p>
+            </div>
+
+            <div className="border-l-4 border-primary pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/back</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Возвращает на место смерти
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Badge variant="destructive">Админ</Badge>
+              Команды для администраторов
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/setwarp [название]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Создает публичный варп
+              </p>
+            </div>
+
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/delwarp [название]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Удаляет публичный варп
+              </p>
+            </div>
+
+            <div className="border-l-4 border-destructive pl-4 py-2 bg-muted/50 rounded-r">
+              <code className="text-sm font-mono">/tp [игрок1] [игрок2]</code>
+              <p className="text-sm text-muted-foreground mt-1">
+                Телепортирует первого игрока ко второму
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    ),
+  },
+  'teleport-config': {
+    title: 'TeleportManager - Конфигурация',
+    content: (
+      <div className="space-y-6">
+        <h2 className="text-2xl font-bold">Настройка плагина</h2>
+        
+        <Card>
+          <CardHeader>
+            <CardTitle>Основные настройки</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <pre className="bg-muted p-4 rounded-lg overflow-x-auto">
+              <code>{`# Настройки телепортации
+teleport:
+  delay: 3
+  cancel-on-move: true
+  cancel-on-damage: true
+  
+# Домашние точки
+homes:
+  max-per-player: 5
+  default-home: "home"
+  
+# Запросы на ТП
+tpa:
+  timeout: 60
+  cooldown: 30
+  
+# Варпы
+warps:
+  show-in-list: true
+  permission-per-warp: false`}</code>
+            </pre>
+          </CardContent>
+        </Card>
       </div>
     ),
   },
 };
 
 export default function DocContent({ pageId }: DocContentProps) {
-  const page = docPages[pageId] || docPages.intro;
+  const content = pageContent[pageId] || pageContent.intro;
 
   return (
-    <ScrollArea className="h-full">
-      <div className="max-w-4xl mx-auto px-6 py-8 lg:px-12 lg:py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-4">{page.title}</h1>
-          <div className="h-1 w-20 bg-primary rounded"></div>
-        </div>
-        <div className="prose prose-slate max-w-none">
-          {page.content}
-        </div>
-        
-        <div className="mt-12 pt-8 border-t border-border">
-          <div className="flex items-center justify-between text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <Icon name="Clock" size={16} />
-              <span>Обновлено: {new Date().toLocaleDateString('ru-RU')}</span>
-            </div>
-            <div className="flex items-center gap-4">
-              <button className="flex items-center gap-1 hover:text-primary transition-colors">
-                <Icon name="ThumbsUp" size={16} />
-                <span>Полезно</span>
-              </button>
-              <button className="flex items-center gap-1 hover:text-primary transition-colors">
-                <Icon name="MessageSquare" size={16} />
-                <span>Обратная связь</span>
-              </button>
-            </div>
-          </div>
-        </div>
+    <ScrollArea className="flex-1">
+      <div className="container max-w-4xl py-8 px-6">
+        <article className="prose prose-slate dark:prose-invert max-w-none">
+          <h1 className="text-3xl font-bold mb-4">{content.title}</h1>
+          {content.content}
+        </article>
       </div>
     </ScrollArea>
   );
